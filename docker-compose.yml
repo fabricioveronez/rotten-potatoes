@@ -21,4 +21,15 @@ services:
       MONGODB_HOST: mongodb
       MONGODB_PORT: "27017"
       MONGODB_USERNAME: mongouser
-      MONGODB_PASSWD: mongopws
+      MONGODB_PASSWD: mongopwd
+  
+  mongodb:
+    image: mongo:5.0.0
+    networks:
+      - rotten_net
+    volumes:
+      - mongo_vol:/data/db
+    environment:
+      MONGODB_ROOT_USERNAME: mongouser
+      MONGODB_ROOT_PASSWD: mongopwd
+      
