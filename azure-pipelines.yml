@@ -13,9 +13,10 @@ stages:
 - stage: CI
   displayName: Integração Contínua
   jobs:
-  - job: Construção da imagem docker
+  - job: Docker
     steps:
     - task: Docker@2
+      displayName: Construção da imagem Docker
       inputs:
         containerRegistry: 'DockerHub'
         repository: 'fabricioveronez/rotten-potatoes'
@@ -31,9 +32,9 @@ stages:
   dependsOn: CI
   jobs:
   - job: Deploy
-    displayName: Deploy no Kubernetes
     steps:  
     - task: KubernetesManifest@1
+      displayName: Deploy no Kubernetes
       inputs:
         action: 'deploy'
         connectionType: 'kubernetesServiceConnection'
