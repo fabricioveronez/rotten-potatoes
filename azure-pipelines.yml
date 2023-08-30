@@ -33,13 +33,10 @@ stages:
   - job: Deploy
     displayName: Deploy no Kubernetes
     steps:  
-    - task: KubernetesManifest@0
+    - task: KubernetesManifest@1
       inputs:
         action: 'deploy'
-        kubernetesServiceConnection: 'k8s-default-1646655554647'
-        namespace: 'default'
-        manifests: 'k8s/*'
-        containers: 'fabricioveronez/live-conversao-temperatura:$(Build.BuildId)'
-
-
-
+        connectionType: 'kubernetesServiceConnection'
+        kubernetesServiceConnection: 'Kubernetes Teste'
+        manifests: 'k8s/deployment.yaml'
+        containers: 'fabricioveronez/rotten-potatoes:$(Build.BuildId)'
