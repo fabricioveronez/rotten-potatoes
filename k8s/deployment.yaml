@@ -39,6 +39,7 @@ kind: Deployment
 metadata:
   name: movies
 spec:
+  replicas: 10
   selector:
     matchLabels:
       app: movies
