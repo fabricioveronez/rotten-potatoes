@@ -38,6 +38,6 @@ stages:
       inputs:
         action: 'deploy'
         connectionType: 'kubernetesServiceConnection'
-        kubernetesServiceConnection: 'Kubernetes Teste'
+        kubernetesServiceConnection: 'Kubernetes Vivo'
         manifests: 'k8s/deployment.yaml'
         containers: 'fabricioveronez/rotten-potatoes:$(Build.BuildId)'
