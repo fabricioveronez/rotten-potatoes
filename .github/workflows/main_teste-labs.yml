@@ -23,6 +23,7 @@ jobs:
           python-version: '3.12'
 
       - name: Create and start virtual environment
+        working-directory: ./src
         run: |
           python -m venv venv
           source venv/bin/activate
@@ -33,6 +34,7 @@ jobs:
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
+        working-directory: ./src
         run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment jobs
@@ -40,7 +42,7 @@ jobs:
         with:
           name: python-app
           path: |
-            release.zip
+            ./src/release.zip
             !venv/
 
   deploy:
